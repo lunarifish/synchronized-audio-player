@@ -7,7 +7,7 @@ def getSongPos():
     # create socket
     tcp_server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # local information
-    PORT = 10109
+    PORT = get("server_port")
     ADDRESS = ('', PORT)
     # binding
     tcp_server_socket.bind(ADDRESS)
@@ -52,7 +52,7 @@ def changeSong():
     # create socket
     tcp_server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # local information
-    PORT = 10110
+    PORT = get("controller_port")
     ADDRESS = ('', PORT)
     # binding
     tcp_server_socket.bind(ADDRESS)
