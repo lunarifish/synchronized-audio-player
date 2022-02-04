@@ -1,2 +1,10 @@
 # synchronized-audio-player
-i hate openfm
+## server side
+```
+python main.py [client port] [controller port]
+```
+
+## client side
+```
+python main.py [server ip] [server port]
+```
