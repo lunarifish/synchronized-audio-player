@@ -8,11 +8,11 @@ import winsound
 
 HOST = "siyfico.cloud"
 PORT = 10109
+DLPATH = "./audio.mp3"
+OUTPATH = "audio_processed.wav"
 while int(sendData(HOST, PORT, "isplaying")) != 1:
     pass
 song = sendData(HOST, PORT, "url")
-DLPATH = "./audio.mp3"
-OUTPATH = "audio_processed.wav"
 
 download(song, DLPATH)
 time.sleep(0.5)
