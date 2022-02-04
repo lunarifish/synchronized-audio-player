@@ -4,10 +4,10 @@ from wget import download
 import time
 import os
 import winsound
+import sys
 
-
-HOST = "siyfico.cloud"
-PORT = 10109
+HOST = sys.argv[1]
+PORT = int(sys.argv[2])
 DLPATH = "./audio.mp3"
 OUTPATH = "audio_processed.wav"
 while int(sendData(HOST, PORT, "isplaying")) != 1:
