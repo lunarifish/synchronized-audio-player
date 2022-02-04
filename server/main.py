@@ -12,6 +12,8 @@ variables.set("isplaying", 0)
 variables.set("songurl", "none")
 variables.set("songpos", "none")
 variables.set("stop", 0)
+variables.set("server_port", int(sys.argv[1]))
+variables.set("controller_port", int(sys.argv[2]))
 
 def updatePos():
     starttime = time.time()
