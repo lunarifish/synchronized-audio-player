@@ -31,7 +31,6 @@ def server(PORT):
                 current_client = Client(ip = peer[0], port = peer[1])
                 Client.clients.append(current_client)
             # process request
-            DATA_LENGTH = 1024
             data = client_socket.recv(DATA_LENGTH)
             if (data := data.decode("utf-8")) in VALID_MESSAGES:
                 current_client.newRequest(request = data, port = peer[1])
