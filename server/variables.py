@@ -5,7 +5,7 @@ def _init():
 def set(name, value):
     _global_dict[name] = value
 
-def get(name, defValue=None):
+def get(name, defValue = None):
     try:
         return _global_dict[name]
     except KeyError:
