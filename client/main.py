@@ -11,7 +11,7 @@ PORT = int(sys.argv[2])
 DLPATH = "./audio.mp3"
 OUTPATH = "audio_processed.wav"
 while int(sendData(HOST, PORT, "isplaying")) != 1:
-    pass
+    time.sleep(0.5)
 song = sendData(HOST, PORT, "url")
 
 download(song, DLPATH)
