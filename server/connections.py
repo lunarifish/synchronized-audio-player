@@ -53,8 +53,7 @@ class Client:
         Client.active_clients.clear()
         Client.inactive_clients.clear()
         for i in Client.clients:
-            i.is_active = i.isActive()
-            if i.is_active:
+            if i.isActive():
                 Client.active_clients.append(i)
             else:
                 Client.inactive_clients.append(i)
