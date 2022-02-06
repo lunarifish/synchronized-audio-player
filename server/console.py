@@ -53,6 +53,6 @@ def userInputMode(keybind):
             else:
                 keybind[user_input[0]](user_input[1:])
         except KeyError:
-            logger.warn("Unknown command")
+            error_logger.warn("Unknown command")
         except IndexError:
-            logger.warn("Wrong number of arguments")
+            error_logger.warn("Wrong number of arguments")
