@@ -1,7 +1,7 @@
 # synchronized-audio-player
 ## server side
 ```
-python main.py [client port] [controller port]
+python main.py [server port] [controller port]
 ```
 #### available commands
 - list: list all connected clients
