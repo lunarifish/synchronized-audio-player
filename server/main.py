@@ -9,10 +9,11 @@ import traceback
 
 
 
-# set server port
+# some const
 server_port = int(sys.argv[1])
 controller_server_port = int(sys.argv[2])
 CLIENT_STATUS_UPDATER_INTERVAL = 1
+CLIENT_ACTIVE_TIME = 5
 print(f"Starting server on port {server_port}, {controller_server_port}")
 
 
@@ -23,7 +24,7 @@ variables.set("url", "none")
 variables.set("songpos", "none")
 variables.set("songlen", "none")
 variables.set("stop", 0)
-variables.set("active_time", 5)
+variables.set("active_time", CLIENT_ACTIVE_TIME)
 variables.set("last_controller_client", None)
 
 
