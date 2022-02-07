@@ -45,7 +45,9 @@ def userInputMode(keybind):
     while True:
         try:
             # print(">> ", end = "\0")
-            user_input = input().split()
+            user_input = input()
+            logger.info(f"User command: {user_input}")
+            user_input = user_input.split()
             if len(user_input) == 0:
                 pass
             elif len(user_input) == 1:
@@ -53,6 +55,6 @@ def userInputMode(keybind):
             else:
                 keybind[user_input[0]](user_input[1:])
         except KeyError:
-            error_logger.warn("Unknown command")
+            logger.info("Unknown command")
         except IndexError:
-            error_logger.warn("Wrong number of arguments")
+            logger.info("Wrong number of arguments")

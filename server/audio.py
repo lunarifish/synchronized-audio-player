@@ -1,26 +1,32 @@
 import eyed3
 import time
-from downloader import download
+from file import download
 from console import log
 import variables
+import traceback
 
-def getLength(filename):
-    audio = eyed3.load(f"./audios/{filename}")
-    length = int(audio.info.time_secs)
-    return length
+def getLength(path):
+    try:
+        audio = eyed3.load(path)
+        length = int(audio.info.time_secs)
+        return length
+    except AttributeError:
+        log("error").error("Target file is not a valid audio file")
+        return None
+    
 
 def updatePos():
     starttime = time.time()
     song_len = 0
     pos = 0
     log().info("Timing thread started")
-    while variables.get("stop") == 0:
+    while not variables.get("stop"):
         try:
             time.sleep(0.7)
             if variables.get("onChange") == 1:
                 url = variables.get("url")
-                download(url, "song.mp3")
-                song_len = getLength("song.mp3")
+                file_path = download(url)
+                song_len = getLength(file_path)
                 variables.set("songlen", song_len)
                 starttime = time.time()
                 variables.set("onChange", 0)
@@ -34,4 +40,6 @@ def updatePos():
                 variables.set("songpos", pos)
         except:
             variables.set("code", 1)
+            for i in traceback.format_exc().split("\n"):
+                log("error").error(i)
     log().info("Thread stopping")

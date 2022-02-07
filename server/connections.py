@@ -53,20 +53,12 @@ class Client:
         Client.active_clients.clear()
         Client.inactive_clients.clear()
         for i in Client.clients:
-            if i.isActive():
+            i.is_active = i.isActive()
+            if i.is_active:
                 Client.active_clients.append(i)
             else:
                 Client.inactive_clients.append(i)
 
-def listClients():
-    last_controller = Controller.last_controller
-    if last_controller is not None:
-        log().info(f"Last controller activity: {last_controller.ip}:{last_controller.port} at {time.asctime(time.localtime(last_controller.control_time))}")
-        log().info(f"Message: {last_controller.command}\n")
-    else:
-        log().info("Last controller activity: None")
-    log().info(f"Active clients: {', '.join([i.ip for i in Client.active_clients])}")
-    log().info(f"Inactive clients: {', '.join([i.ip for i in Client.inactive_clients])}")
 
 def updateClientStatus(interval):
     log().info("Client status updater thread started")
