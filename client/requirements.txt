@@ -1,0 +1,3 @@
+pydub
+wget
+winsound
